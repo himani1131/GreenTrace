@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GreenTrace - Energy-Aware Code Optimization</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =====================================================
+     SPLASH SCREEN
+===================================================== -->
+
+<div id="splashScreen" class="splash-screen">
+
+    <div class="splash-overlay"></div>
+
+    <div class="splash-content">
+
+        <div class="splash-loader"></div>
+
+        <p class="splash-loading">
+            Loading GreenTrace...
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MAIN APPLICATION
+===================================================== -->
+
+<div id="mainApp" class="main-app">
+
+
+    <!-- =================================================
+         SIDEBAR
+    ================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                🌱
+            </div>
+
+            <div>
+                <h2>GreenTrace</h2>
+                <span>Energy-Aware Code</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <button class="nav-item active"
+                    onclick="showPage('dashboard', this)">
+
+                <span>📊</span>
+                <span>Dashboard</span>
+
+            </button>
+
+
+            <button class="nav-item"
+                    onclick="showPage('analyze', this)">
+
+                <span>⚡</span>
+                <span>Analyze Code</span>
+
+            </button>
+
+
+            <button class="nav-item"
+                    onclick="showPage('results', this)">
+
+                <span>📈</span>
+                <span>Results</span>
+
+            </button>
+
+
+            <button class="nav-item"
+                    onclick="showPage('optimization', this)">
+
+                <span>🚀</span>
+                <span>Optimization</span>
+
+            </button>
+
+
+            <button class="nav-item"
+                    onclick="showPage('validation', this)">
+
+                <span>✓</span>
+                <span>Validation</span>
+
+            </button>
+
+
+            <button class="nav-item"
+                    onclick="showPage('comparison', this)">
+
+                <span>⚖</span>
+                <span>Comparison</span>
+
+            </button>
+
+
+            <button class="nav-item"
+                    onclick="showPage('history', this)">
+
+                <span>🕘</span>
+                <span>History</span>
+
+            </button>
+
+
+            <button class="nav-item"
+                    onclick="showPage('reports', this)">
+
+                <span>📄</span>
+                <span>Reports</span>
+
+            </button>
+
+
+            <button class="nav-item"
+                    onclick="showPage('settings', this)">
+
+                <span>⚙</span>
+                <span>Settings</span>
+
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="local-mode">
+                <span class="status-dot"></span>
+                Local Mode
+            </div>
+
+            <div class="version">
+                GreenTrace v1.0
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =================================================
+         MAIN CONTENT
+    ================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1 id="pageTitle">
+                    Dashboard
+                </h1>
+
+                <p id="pageSubtitle">
+                    Monitor your software's energy impact.
+                </p>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <button class="theme-button"
+                        onclick="toggleTheme()"
+                        id="themeButton">
+
+                    🌙 Dark
+
+                </button>
+
+
+                <div class="user-badge">
+                    👩‍💻 Developer
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             DASHBOARD
+        ================================================== -->
+
+        <section id="dashboard" class="page active-page">
+
+            <div class="hero-card">
+
+                <div>
+
+                    <span class="hero-tag">
+                        ⚡ ENERGY-AWARE SOFTWARE ANALYSIS
+                    </span>
+
+                    <h2>
+                        Code Greener.<br>
+                        Measure the Impact.
+                    </h2>
+
+                    <p>
+                        GreenTrace analyzes source code, detects inefficient
+                        patterns, suggests optimized alternatives, validates
+                        them and compares their estimated energy and carbon impact.
+                    </p>
+
+                    <button class="primary-button"
+                            onclick="showPageByName('analyze')">
+
+                        Start Analysis →
+
+                    </button>
+
+                </div>
+
+
+                <div class="hero-symbol">
+                    🌱
+                </div>
+
+            </div>
+
+
+
+            <!-- METRICS -->
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Overview</h2>
+                    <p>Your latest software sustainability metrics.</p>
+                </div>
+
+            </div>
+
+
+            <div class="metric-grid">
+
+                <div class="metric-card">
+
+                    <div class="metric-icon">📊</div>
+
+                    <span>Analyses</span>
+
+                    <strong>24</strong>
+
+                    <small>+6 this week</small>
+
+                </div>
+
+
+                <div class="metric-card">
+
+                    <div class="metric-icon">🚀</div>
+
+                    <span>Optimizations</span>
+
+                    <strong>18</strong>
+
+                    <small>75% success rate</small>
+
+                </div>
+
+
+                <div class="metric-card">
+
+                    <div class="metric-icon">⚡</div>
+
+                    <span>Energy Saved</span>
+
+                    <strong>12.8 Wh</strong>
+
+                    <small>Estimated</small>
+
+                </div>
+
+
+                <div class="metric-card">
+
+                    <div class="metric-icon">🌿</div>
+
+                    <span>CO₂ Reduction</span>
+
+                    <strong>5.4 g</strong>
+
+                    <small>Estimated</small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- FEATURE CARDS -->
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>GreenTrace Capabilities</h2>
+                    <p>From code analysis to measurable impact.</p>
+                </div>
+
+            </div>
+
+
+            <div class="feature-grid">
+
+                <div class="feature-card"
+                     onclick="showPageByName('analyze')">
+
+                    <div class="feature-icon">🔍</div>
+
+                    <h3>Static Code Analysis</h3>
+
+                    <p>
+                        Detect inefficient code structures before execution.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">🚀</div>
+
+                    <h3>Code Optimization</h3>
+
+                    <p>
+                        Generate cleaner and more efficient code alternatives.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">⚡</div>
+
+                    <h3>Energy & Carbon</h3>
+
+                    <p>
+                        Estimate energy usage and associated carbon impact.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">✓</div>
+
+                    <h3>Functional Validation</h3>
+
+                    <p>
+                        Check whether optimized code maintains expected output.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">⚖</div>
+
+                    <h3>Impact Comparison</h3>
+
+                    <p>
+                        Compare original and optimized implementations.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">📈</div>
+
+                    <h3>Scale Impact</h3>
+
+                    <p>
+                        Project potential impact across repeated executions.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ANALYZE CODE
+        ================================================== -->
+
+        <section id="analyze" class="page">
+
+            <div class="page-header">
+
+                <div>
+
+                    <h2>Analyze Source Code</h2>
+
+                    <p>
+                        Enter your code and select the analysis modules.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="analysis-layout">
+
+                <div class="editor-card">
+
+                    <div class="editor-header">
+
+                        <div>
+
+                            <span>Source Code</span>
+
+                            <select id="languageSelect"
+                                    onchange="changeLanguage()">
+
+                                <option value="python">
+                                    Python
+                                </option>
+
+                                <option value="cpp">
+                                    C++
+                                </option>
+
+                                <option value="javascript">
+                                    JavaScript
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="editor-actions">
+
+                            <button onclick="loadExampleCode()">
+                                Example
+                            </button>
+
+                            <button onclick="clearEditor()">
+                                Clear
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <textarea id="codeInput"
+                              spellcheck="false"
+                              placeholder="Paste your source code here..."></textarea>
+
+
+                    <div class="editor-footer">
+
+                        <span id="codeInfo">
+                            Python • 0 lines
+                        </span>
+
+                        <button onclick="uploadCode()">
+                            📁 Upload
+                        </button>
+
+                        <input type="file"
+                               id="codeFile"
+                               hidden
+                               accept=".py,.cpp,.js,.txt"
+                               onchange="handleFileUpload(event)">
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ANALYSIS OPTIONS -->
+
+                <div class="options-card">
+
+                    <h3>Analysis Modules</h3>
+
+                    <label class="check-row">
+
+                        <input type="checkbox"
+                               checked
+                               id="staticCheck">
+
+                        <span>
+                            <strong>Static Code Analysis</strong>
+                            <small>Detect inefficient patterns</small>
+                        </span>
+
+                    </label>
+
+
+                    <label class="check-row">
+
+                        <input type="checkbox"
+                               checked
+                               id="complexityCheck">
+
+                        <span>
+                            <strong>Complexity Analysis</strong>
+                            <small>Estimate algorithmic complexity</small>
+                        </span>
+
+                    </label>
+
+
+                    <label class="check-row">
+
+                        <input type="checkbox"
+                               checked
+                               id="optimizationCheck">
+
+                        <span>
+                            <strong>Optimization Detection</strong>
+                            <small>Find optimization opportunities</small>
+                        </span>
+
+                    </label>
+
+
+                    <label class="check-row">
+
+                        <input type="checkbox"
+                               checked
+                               id="benchmarkCheck">
+
+                        <span>
+                            <strong>Runtime Benchmark</strong>
+                            <small>Compare execution performance</small>
+                        </span>
+
+                    </label>
+
+
+                    <label class="check-row">
+
+                        <input type="checkbox"
+                               checked
+                               id="energyCheck">
+
+                        <span>
+                            <strong>Energy Measurement</strong>
+                            <small>Estimate energy consumption</small>
+                        </span>
+
+                    </label>
+
+
+                    <label class="check-row">
+
+                        <input type="checkbox"
+                               checked
+                               id="carbonCheck">
+
+                        <span>
+                            <strong>Carbon Estimation</strong>
+                            <small>Estimate associated CO₂ impact</small>
+                        </span>
+
+                    </label>
+
+
+                    <button class="analyze-button"
+                            onclick="runAnalysis()">
+
+                        ⚡ Analyze Code
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             RESULTS
+        ================================================== -->
+
+        <section id="results" class="page">
+
+            <div class="page-header">
+
+                <div>
+
+                    <h2>Analysis Results</h2>
+
+                    <p>
+                        Detected patterns and performance indicators.
+                    </p>
+
+                </div>
+
+                <span class="success-badge">
+                    Analysis Complete
+                </span>
+
+            </div>
+
+
+            <div class="result-metrics">
+
+                <div class="result-card">
+                    <span>Runtime</span>
+                    <strong id="runtimeResult">1.42 s</strong>
+                </div>
+
+                <div class="result-card">
+                    <span>CPU Usage</span>
+                    <strong id="cpuResult">38%</strong>
+                </div>
+
+                <div class="result-card">
+                    <span>Energy</span>
+                    <strong id="energyResult">0.021 Wh</strong>
+                </div>
+
+                <div class="result-card">
+                    <span>CO₂ Estimate</span>
+                    <strong id="carbonResult">0.009 g</strong>
+                </div>
+
+            </div>
+
+
+            <div class="result-grid">
+
+                <div class="issue-card">
+
+                    <div class="card-title">
+
+                        <h3>Detected Inefficiency</h3>
+
+                        <span class="severity high">
+                            HIGH
+
+                        </span>
+
+                    </div>
+
+
+                    <h4>Repeated computation inside loop</h4>
+
+                    <p>
+                        A calculation is repeatedly performed inside a loop.
+                        Storing the value before the loop can reduce repeated
+                        computation.
+                    </p>
+
+
+                    <div class="explanation">
+
+                        <strong>Why is this inefficient?</strong>
+
+                        <p>
+                            Repeating the same operation increases CPU work
+                            and may increase runtime and energy consumption.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="score-card">
+
+                    <span>GreenTrace Score</span>
+
+                    <div class="score-circle">
+                        <strong>78</strong>
+                        <small>/100</small>
+                    </div>
+
+                    <p>
+                        Based on code structure, complexity and estimated
+                        performance indicators.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="button-row">
+
+                <button class="primary-button"
+                        onclick="showPageByName('optimization')">
+
+                    View Optimization →
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             OPTIMIZATION
+        ================================================== -->
+
+        <section id="optimization" class="page">
+
+            <div class="page-header">
+
+                <div>
+
+                    <h2>Optimization Suggestion</h2>
+
+                    <p>
+                        Original and optimized code are shown together for comparison.
+                    </p>
+
+                </div>
+
+                <span class="validated-badge">
+                    ✓ Validated Pattern
+                </span>
+
+            </div>
+
+
+            <!-- CODE INFO -->
+
+            <div class="code-info-bar">
+
+                <div>
+
+                    <span>Language</span>
+                    <strong id="optimizationLanguage">
+                        Python
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>Lines</span>
+                    <strong id="originalLineCount">
+                        10
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>Optimization</span>
+                    <strong>
+                        Loop Efficiency
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>Confidence</span>
+                    <strong class="green-text">
+                        High
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SIDE BY SIDE CODE -->
+
+            <div class="code-comparison">
+
+                <!-- ORIGINAL -->
+
+                <div class="code-panel">
+
+                    <div class="code-panel-header">
+
+                        <div>
+
+                            <span class="code-dot original-dot"></span>
+
+                            <strong>Original Code</strong>
+
+                        </div>
+
+                        <span class="code-label">
+                            Before
+                        </span>
+
+                    </div>
+
+
+                    <div class="code-wrapper">
+
+                        <div class="line-numbers"
+                             id="originalNumbers"></div>
+
+                        <pre id="originalCode"
+                             class="code-display"></pre>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- OPTIMIZED -->
+
+                <div class="code-panel optimized-panel">
+
+                    <div class="code-panel-header">
+
+                        <div>
+
+                            <span class="code-dot optimized-dot"></span>
+
+                            <strong>Optimized Code</strong>
+
+                        </div>
+
+                        <span class="code-label optimized-label">
+                            After
+                        </span>
+
+                    </div>
+
+
+                    <div class="code-wrapper">
+
+                        <div class="line-numbers"
+                             id="optimizedNumbers"></div>
+
+                        <pre id="optimizedCode"
+                             class="code-display"></pre>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- EXPLANATION -->
+
+            <div class="optimization-explanation">
+
+                <div>
+
+                    <span class="small-label">
+                        OPTIMIZATION EXPLANATION
+                    </span>
+
+                    <h3>
+                        Reduce repeated computation
+                    </h3>
+
+                    <p>
+                        The optimized version moves repeated calculations
+                        outside the loop. This reduces unnecessary CPU work
+                        while maintaining the expected output.
+                    </p>
+
+                </div>
+
+
+                <div class="confidence-box">
+
+                    <span>Optimization Confidence</span>
+
+                    <div class="confidence-items">
+
+                        <span>✓ Syntax</span>
+                        <span>✓ Pattern Match</span>
+                        <span>✓ Test Output</span>
+                        <span>✓ Functional Equivalence</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="button-row">
+
+                <button class="secondary-button"
+                        onclick="showPageByName('validation')">
+
+                    Validate Optimization
+
+                </button>
+
+
+                <button class="primary-button"
+                        onclick="showPageByName('comparison')">
+
+                    Compare Impact →
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             VALIDATION
+        ================================================== -->
+
+        <section id="validation" class="page">
+
+            <div class="page-header">
+
+                <div>
+
+                    <h2>Functional Validation</h2>
+
+                    <p>
+                        Check whether the optimized code produces the expected output.
+                    </p>
+
+                </div>
+
+                <span class="success-badge">
+                    ✓ Output Equivalence Confirmed
+                </span>
+
+            </div>
+
+
+            <div class="validation-flow">
+
+                <div class="validation-step">
+
+                    <div class="step-number">1</div>
+
+                    <h3>Original Code</h3>
+
+                    <p>
+                        Source program
+                    </p>
+
+                </div>
+
+
+                <div class="flow-arrow">→</div>
+
+
+                <div class="validation-step">
+
+                    <div class="step-number">2</div>
+
+                    <h3>Test Cases</h3>
+
+                    <p>
+                        5 test cases executed
+                    </p>
+
+                </div>
+
+
+                <div class="flow-arrow">→</div>
+
+
+                <div class="validation-step">
+
+                    <div class="step-number">3</div>
+
+                    <h3>Optimized Code</h3>
+
+                    <p>
+                        Optimized program
+                    </p>
+
+                </div>
+
+
+                <div class="flow-arrow">→</div>
+
+
+                <div class="validation-step success-step">
+
+                    <div class="step-number">✓</div>
+
+                    <h3>Output Match</h3>
+
+                    <p>
+                        All outputs matched
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="validation-summary">
+
+                <div>
+                    <span>Tests Executed</span>
+                    <strong>5</strong>
+                </div>
+
+                <div>
+                    <span>Passed</span>
+                    <strong class="green-text">5</strong>
+                </div>
+
+                <div>
+                    <span>Failed</span>
+                    <strong>0</strong>
+                </div>
+
+                <div>
+                    <span>Status</span>
+                    <strong class="green-text">VALID</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             COMPARISON
+        ================================================== -->
+
+        <section id="comparison" class="page">
+
+            <div class="page-header">
+
+                <div>
+
+                    <h2>Performance & Impact Comparison</h2>
+
+                    <p>
+                        Original versus optimized implementation.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="comparison-grid">
+
+                <div class="comparison-card">
+
+                    <span>Runtime</span>
+
+                    <div class="comparison-values">
+
+                        <strong>1.42 s</strong>
+
+                        <span>→</span>
+
+                        <strong class="green-text">
+                            0.91 s
+                        </strong>
+
+                    </div>
+
+                    <small>
+                        35.9% improvement
+                    </small>
+
+                </div>
+
+
+                <div class="comparison-card">
+
+                    <span>CPU Usage</span>
+
+                    <div class="comparison-values">
+
+                        <strong>38%</strong>
+
+                        <span>→</span>
+
+                        <strong class="green-text">
+                            25%
+                        </strong>
+
+                    </div>
+
+                    <small>
+                        34.2% reduction
+                    </small>
+
+                </div>
+
+
+                <div class="comparison-card">
+
+                    <span>Energy</span>
+
+                    <div class="comparison-values">
+
+                        <strong>0.021 Wh</strong>
+
+                        <span>→</span>
+
+                        <strong class="green-text">
+                            0.014 Wh
+                        </strong>
+
+                    </div>
+
+                    <small>
+                        33.3% reduction
+                    </small>
+
+                </div>
+
+
+                <div class="comparison-card">
+
+                    <span>CO₂ Estimate</span>
+
+                    <div class="comparison-values">
+
+                        <strong>0.009 g</strong>
+
+                        <span>→</span>
+
+                        <strong class="green-text">
+                            0.006 g
+                        </strong>
+
+                    </div>
+
+                    <small>
+                        33.3% reduction
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SCALE IMPACT -->
+
+            <div class="scale-card">
+
+                <div>
+
+                    <span class="small-label">
+                        SCALE IMPACT SIMULATOR
+                    </span>
+
+                    <h3>
+                        What happens at larger execution volumes?
+                    </h3>
+
+                    <p>
+                        Illustrative projection based on the measured
+                        per-execution difference.
+                    </p>
+
+                </div>
+
+
+                <div class="scale-options">
+
+                    <button onclick="updateScale(1000)">
+                        1,000
+                    </button>
+
+                    <button onclick="updateScale(100000)">
+                        100,000
+                    </button>
+
+                    <button onclick="updateScale(1000000)">
+                        1,000,000
+                    </button>
+
+                </div>
+
+
+                <div class="scale-result">
+
+                    <span>
+                        Projected energy difference
+                    </span>
+
+                    <strong id="scaleEnergy">
+                        7 Wh
+                    </strong>
+
+                    <span>
+                        Projected CO₂ difference
+                    </span>
+
+                    <strong id="scaleCarbon">
+                        3 g
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             HISTORY
+        ================================================== -->
+
+        <section id="history" class="page">
+
+            <div class="page-header">
+
+                <div>
+
+                    <h2>Analysis History</h2>
+
+                    <p>
+                        Previously analyzed source code.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="table-card">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Date</th>
+                            <th>Language</th>
+                            <th>Analysis</th>
+                            <th>Status</th>
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>26 Sep 2026</td>
+                            <td>Python</td>
+                            <td>Loop Optimization</td>
+
+                            <td>
+                                <span class="table-status">
+                                    Optimized
+                                </span>
+                            </td>
+
+                            <td>
+                                <button onclick="showPageByName('comparison')">
+                                    View
+                                </button>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>24 Sep 2026</td>
+                            <td>Python</td>
+                            <td>Complexity Analysis</td>
+
+                            <td>
+                                <span class="table-status">
+                                    Complete
+                                </span>
+                            </td>
+
+                            <td>
+                                <button onclick="showPageByName('results')">
+                                    View
+                                </button>
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>22 Sep 2026</td>
+                            <td>C++</td>
+                            <td>Algorithm Analysis</td>
+
+                            <td>
+                                <span class="table-status">
+                                    Complete
+                                </span>
+                            </td>
+
+                            <td>
+                                <button onclick="showPageByName('results')">
+                                    View
+                                </button>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             REPORTS
+        ================================================== -->
+
+        <section id="reports" class="page">
+
+            <div class="page-header">
+
+                <div>
+
+                    <h2>Reports</h2>
+
+                    <p>
+                        Generate a summary of your GreenTrace analysis.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="report-card">
+
+                <div class="report-icon">
+                    📄
+                </div>
+
+                <div>
+
+                    <h3>
+                        GreenTrace Analysis Report
+                    </h3>
+
+                    <p>
+                        Includes source analysis, detected issues,
+                        optimized code, validation results, performance,
+                        energy and estimated carbon impact.
+                    </p>
+
+                </div>
+
+
+                <button class="primary-button"
+                        onclick="generateReport()">
+
+                    Generate Report
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SETTINGS
+        ================================================== -->
+
+        <section id="settings" class="page">
+
+            <div class="page-header">
+
+                <div>
+
+                    <h2>Settings</h2>
+
+                    <p>
+                        Customize your GreenTrace experience.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="settings-card">
+
+                <div class="setting-row">
+
+                    <div>
+
+                        <h3>Appearance</h3>
+
+                        <p>
+                            Choose how GreenTrace looks.
+                        </p>
+
+                    </div>
+
+
+                    <div class="theme-selector">
+
+                        <button id="darkModeButton"
+                                onclick="setTheme('dark')">
+
+                            🌙 Dark
+
+                        </button>
+
+
+                        <button id="lightModeButton"
+                                onclick="setTheme('light')">
+
+                            ☀ Light
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+
+                        <h3>Local Mode</h3>
+
+                        <p>
+                            Keep analysis data on the local system.
+                        </p>
+
+                    </div>
+
+                    <span class="enabled-badge">
+                        Enabled
+                    </span>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+
+                        <h3>Carbon Estimation</h3>
+
+                        <p>
+                            Carbon values are estimates based on energy
+                            consumption and carbon intensity.
+                        </p>
+
+                    </div>
+
+                    <span class="enabled-badge">
+                        Enabled
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
