@@ -264,54 +264,31 @@
             <div class="metric-grid">
 
                 <div class="metric-card">
-
                     <div class="metric-icon">📊</div>
-
                     <span>Analyses</span>
-
-                    <strong>24</strong>
-
-                    <small>+6 this week</small>
-
+                    <strong id="statAnalyses">0</strong>
+                    <small id="statAnalysesNote">No analyses yet</small>
                 </div>
 
-
                 <div class="metric-card">
-
                     <div class="metric-icon">🚀</div>
-
                     <span>Optimizations</span>
-
-                    <strong>18</strong>
-
-                    <small>75% success rate</small>
-
+                    <strong id="statOptimizations">0</strong>
+                    <small id="statOptNote">No optimizations yet</small>
                 </div>
 
-
                 <div class="metric-card">
-
                     <div class="metric-icon">⚡</div>
-
                     <span>Energy Saved</span>
-
-                    <strong>12.8 Wh</strong>
-
+                    <strong id="statEnergy">0 Wh</strong>
                     <small>Estimated</small>
-
                 </div>
 
-
                 <div class="metric-card">
-
                     <div class="metric-icon">🌿</div>
-
                     <span>CO₂ Reduction</span>
-
-                    <strong>5.4 g</strong>
-
+                    <strong id="statCarbon">0 g</strong>
                     <small>Estimated</small>
-
                 </div>
 
             </div>
@@ -487,6 +464,17 @@
                               placeholder="Paste your source code here..."></textarea>
 
 
+                    <div class="test-box">
+                        <label for="testInput">
+                            Test cases
+                            <small>(optional, one Python expression per line, e.g. find_pairs([1, 2, 3], 4))</small>
+                        </label>
+                        <textarea id="testInput"
+                                  spellcheck="false"
+                                  placeholder="find_pairs([1, 2, 3, 4], 5)"></textarea>
+                    </div>
+
+
                     <div class="editor-footer">
 
                         <span id="codeInfo">
@@ -643,22 +631,22 @@
 
                 <div class="result-card">
                     <span>Runtime</span>
-                    <strong id="runtimeResult">1.42 s</strong>
+                    <strong id="runtimeResult">—</strong>
                 </div>
 
                 <div class="result-card">
-                    <span>CPU Usage</span>
-                    <strong id="cpuResult">38%</strong>
+                    <span>CPU Time</span>
+                    <strong id="cpuResult">—</strong>
                 </div>
 
                 <div class="result-card">
                     <span>Energy</span>
-                    <strong id="energyResult">0.021 Wh</strong>
+                    <strong id="energyResult">—</strong>
                 </div>
 
                 <div class="result-card">
                     <span>CO₂ Estimate</span>
-                    <strong id="carbonResult">0.009 g</strong>
+                    <strong id="carbonResult">—</strong>
                 </div>
 
             </div>
@@ -669,39 +657,15 @@
                 <div class="issue-card">
 
                     <div class="card-title">
-
-                        <h3>Detected Inefficiency</h3>
-
-                        <span class="severity high">
-                            HIGH
-
-                        </span>
-
+                        <h3>Detected Inefficiencies</h3>
+                        <span class="severity none" id="severityTag">—</span>
                     </div>
 
-
-                    <h4>Repeated computation inside loop</h4>
-
-                    <p>
-                        A calculation is repeatedly performed inside a loop.
-                        Storing the value before the loop can reduce repeated
-                        computation.
-                    </p>
-
-
-                    <div class="explanation">
-
-                        <strong>Why is this inefficient?</strong>
-
-                        <p>
-                            Repeating the same operation increases CPU work
-                            and may increase runtime and energy consumption.
-                        </p>
-
+                    <div id="issueList">
+                        <p class="empty-note">Run an analysis to see detected patterns.</p>
                     </div>
 
                 </div>
-
 
 
                 <div class="score-card">
@@ -709,11 +673,11 @@
                     <span>GreenTrace Score</span>
 
                     <div class="score-circle">
-                        <strong>78</strong>
+                        <strong id="scoreValue">—</strong>
                         <small>/100</small>
                     </div>
 
-                    <p>
+                    <p id="scoreNote">
                         Based on code structure, complexity and estimated
                         performance indicators.
                     </p>
@@ -756,9 +720,7 @@
 
                 </div>
 
-                <span class="validated-badge">
-                    ✓ Validated Pattern
-                </span>
+                <span class="validated-badge" id="optBadge">Waiting for analysis</span>
 
             </div>
 
@@ -768,42 +730,23 @@
             <div class="code-info-bar">
 
                 <div>
-
                     <span>Language</span>
-                    <strong id="optimizationLanguage">
-                        Python
-                    </strong>
-
+                    <strong id="optimizationLanguage">Python</strong>
                 </div>
 
-
                 <div>
-
                     <span>Lines</span>
-                    <strong id="originalLineCount">
-                        10
-                    </strong>
-
+                    <strong id="originalLineCount">0</strong>
                 </div>
 
-
                 <div>
-
                     <span>Optimization</span>
-                    <strong>
-                        Loop Efficiency
-                    </strong>
-
+                    <strong id="optName">—</strong>
                 </div>
 
-
                 <div>
-
                     <span>Confidence</span>
-                    <strong class="green-text">
-                        High
-                    </strong>
-
+                    <strong class="green-text" id="optConfidence">—</strong>
                 </div>
 
             </div>
@@ -891,37 +834,21 @@
             <div class="optimization-explanation">
 
                 <div>
-
-                    <span class="small-label">
-                        OPTIMIZATION EXPLANATION
-                    </span>
-
-                    <h3>
-                        Reduce repeated computation
-                    </h3>
-
-                    <p>
-                        The optimized version moves repeated calculations
-                        outside the loop. This reduces unnecessary CPU work
-                        while maintaining the expected output.
+                    <span class="small-label">OPTIMIZATION EXPLANATION</span>
+                    <h3 id="optTitle">No analysis yet</h3>
+                    <p id="optText">
+                        Run an analysis to see the suggested optimization and why it helps.
                     </p>
-
                 </div>
 
-
                 <div class="confidence-box">
-
                     <span>Optimization Confidence</span>
-
                     <div class="confidence-items">
-
-                        <span>✓ Syntax</span>
-                        <span>✓ Pattern Match</span>
-                        <span>✓ Test Output</span>
-                        <span>✓ Functional Equivalence</span>
-
+                        <span id="chkSyntax">– Syntax</span>
+                        <span id="chkPattern">– Pattern Match</span>
+                        <span id="chkTests">– Test Output</span>
+                        <span id="chkEquiv">– Functional Equivalence</span>
                     </div>
-
                 </div>
 
             </div>
@@ -968,9 +895,7 @@
 
                 </div>
 
-                <span class="success-badge">
-                    ✓ Output Equivalence Confirmed
-                </span>
+                <span class="success-badge" id="valBadge">Waiting for analysis</span>
 
             </div>
 
@@ -978,63 +903,33 @@
             <div class="validation-flow">
 
                 <div class="validation-step">
-
                     <div class="step-number">1</div>
-
                     <h3>Original Code</h3>
-
-                    <p>
-                        Source program
-                    </p>
-
+                    <p>Source program</p>
                 </div>
-
 
                 <div class="flow-arrow">→</div>
 
-
                 <div class="validation-step">
-
                     <div class="step-number">2</div>
-
                     <h3>Test Cases</h3>
-
-                    <p>
-                        5 test cases executed
-                    </p>
-
+                    <p id="valTestsText">Not run yet</p>
                 </div>
 
-
                 <div class="flow-arrow">→</div>
-
 
                 <div class="validation-step">
-
                     <div class="step-number">3</div>
-
                     <h3>Optimized Code</h3>
-
-                    <p>
-                        Optimized program
-                    </p>
-
+                    <p>Optimized program</p>
                 </div>
-
 
                 <div class="flow-arrow">→</div>
 
-
-                <div class="validation-step success-step">
-
-                    <div class="step-number">✓</div>
-
+                <div class="validation-step" id="valMatchStep">
+                    <div class="step-number" id="valMatchIcon">?</div>
                     <h3>Output Match</h3>
-
-                    <p>
-                        All outputs matched
-                    </p>
-
+                    <p id="valMatchText">Waiting for analysis</p>
                 </div>
 
             </div>
@@ -1044,24 +939,41 @@
 
                 <div>
                     <span>Tests Executed</span>
-                    <strong>5</strong>
+                    <strong id="valTotal">—</strong>
                 </div>
 
                 <div>
                     <span>Passed</span>
-                    <strong class="green-text">5</strong>
+                    <strong class="green-text" id="valPassed">—</strong>
                 </div>
 
                 <div>
                     <span>Failed</span>
-                    <strong>0</strong>
+                    <strong id="valFailed">—</strong>
                 </div>
 
                 <div>
                     <span>Status</span>
-                    <strong class="green-text">VALID</strong>
+                    <strong id="valStatus">—</strong>
                 </div>
 
+            </div>
+
+
+            <div class="table-card validation-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Test</th>
+                            <th>Original output</th>
+                            <th>Optimized output</th>
+                            <th>Result</th>
+                        </tr>
+                    </thead>
+                    <tbody id="valRows">
+                        <tr><td colspan="4">Run an analysis to see test results.</td></tr>
+                    </tbody>
+                </table>
             </div>
 
         </section>
@@ -1096,43 +1008,27 @@
                     <span>Runtime</span>
 
                     <div class="comparison-values">
-
-                        <strong>1.42 s</strong>
-
+                        <strong id="cmpRuntimeOld">—</strong>
                         <span>→</span>
-
-                        <strong class="green-text">
-                            0.91 s
-                        </strong>
-
+                        <strong class="green-text" id="cmpRuntimeNew">—</strong>
                     </div>
 
-                    <small>
-                        35.9% improvement
-                    </small>
+                    <small id="cmpRuntimeNote">—</small>
 
                 </div>
 
 
                 <div class="comparison-card">
 
-                    <span>CPU Usage</span>
+                    <span>CPU Time</span>
 
                     <div class="comparison-values">
-
-                        <strong>38%</strong>
-
+                        <strong id="cmpCpuOld">—</strong>
                         <span>→</span>
-
-                        <strong class="green-text">
-                            25%
-                        </strong>
-
+                        <strong class="green-text" id="cmpCpuNew">—</strong>
                     </div>
 
-                    <small>
-                        34.2% reduction
-                    </small>
+                    <small id="cmpCpuNote">—</small>
 
                 </div>
 
@@ -1142,20 +1038,12 @@
                     <span>Energy</span>
 
                     <div class="comparison-values">
-
-                        <strong>0.021 Wh</strong>
-
+                        <strong id="cmpEnergyOld">—</strong>
                         <span>→</span>
-
-                        <strong class="green-text">
-                            0.014 Wh
-                        </strong>
-
+                        <strong class="green-text" id="cmpEnergyNew">—</strong>
                     </div>
 
-                    <small>
-                        33.3% reduction
-                    </small>
+                    <small id="cmpEnergyNote">—</small>
 
                 </div>
 
@@ -1165,24 +1053,17 @@
                     <span>CO₂ Estimate</span>
 
                     <div class="comparison-values">
-
-                        <strong>0.009 g</strong>
-
+                        <strong id="cmpCarbonOld">—</strong>
                         <span>→</span>
-
-                        <strong class="green-text">
-                            0.006 g
-                        </strong>
-
+                        <strong class="green-text" id="cmpCarbonNew">—</strong>
                     </div>
 
-                    <small>
-                        33.3% reduction
-                    </small>
+                    <small id="cmpCarbonNote">—</small>
 
                 </div>
 
-            </div>
+
+                </div>
 
 
 
@@ -1210,17 +1091,10 @@
 
                 <div class="scale-options">
 
-                    <button onclick="updateScale(1000)">
-                        1,000
-                    </button>
-
-                    <button onclick="updateScale(100000)">
-                        100,000
-                    </button>
-
-                    <button onclick="updateScale(1000000)">
-                        1,000,000
-                    </button>
+                    <button onclick="updateScale(1000)">1,000</button>
+                    <button onclick="updateScale(100000)">100,000</button>
+                    <button onclick="updateScale(1000000)">1,000,000</button>
+                    <button onclick="updateScale(1000000000)">1 Billion</button>
 
                 </div>
 
@@ -1231,17 +1105,13 @@
                         Projected energy difference
                     </span>
 
-                    <strong id="scaleEnergy">
-                        7 Wh
-                    </strong>
+                    <strong id="scaleEnergy">—</strong>
 
                     <span>
                         Projected CO₂ difference
                     </span>
 
-                    <strong id="scaleCarbon">
-                        3 g
-                    </strong>
+                    <strong id="scaleCarbon">—</strong>
 
                 </div>
 
@@ -1291,70 +1161,8 @@
                     </thead>
 
 
-                    <tbody>
-
-                        <tr>
-
-                            <td>26 Sep 2026</td>
-                            <td>Python</td>
-                            <td>Loop Optimization</td>
-
-                            <td>
-                                <span class="table-status">
-                                    Optimized
-                                </span>
-                            </td>
-
-                            <td>
-                                <button onclick="showPageByName('comparison')">
-                                    View
-                                </button>
-                            </td>
-
-                        </tr>
-
-
-                        <tr>
-
-                            <td>24 Sep 2026</td>
-                            <td>Python</td>
-                            <td>Complexity Analysis</td>
-
-                            <td>
-                                <span class="table-status">
-                                    Complete
-                                </span>
-                            </td>
-
-                            <td>
-                                <button onclick="showPageByName('results')">
-                                    View
-                                </button>
-                            </td>
-
-                        </tr>
-
-
-                        <tr>
-
-                            <td>22 Sep 2026</td>
-                            <td>C++</td>
-                            <td>Algorithm Analysis</td>
-
-                            <td>
-                                <span class="table-status">
-                                    Complete
-                                </span>
-                            </td>
-
-                            <td>
-                                <button onclick="showPageByName('results')">
-                                    View
-                                </button>
-                            </td>
-
-                        </tr>
-
+                    <tbody id="historyBody">
+                        <tr><td colspan="5">No analyses yet. Run one from "Analyze Code".</td></tr>
                     </tbody>
 
                 </table>
@@ -1474,6 +1282,39 @@
                         </button>
 
                     </div>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h3>Hardware Profile</h3>
+                        <p>Assumed power draw of one busy CPU core, used for the energy estimate.</p>
+                    </div>
+
+                    <select id="hardwareSelect" onchange="savePreferences()">
+                        <option value="laptop">Standard laptop</option>
+                        <option value="server">Server core</option>
+                        <option value="mobile">Mobile device</option>
+                    </select>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h3>Grid Region</h3>
+                        <p>Carbon intensity of the electricity used for the CO₂ estimate.</p>
+                    </div>
+
+                    <select id="regionSelect" onchange="savePreferences()">
+                        <option value="india">India</option>
+                        <option value="us">United States</option>
+                        <option value="eu">European Union</option>
+                        <option value="world">Global average</option>
+                    </select>
 
                 </div>
 
