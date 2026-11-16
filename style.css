@@ -2396,3 +2396,224 @@ td button {
     }
 
 }
+
+
+/* =====================================================
+   PHASE II ADDITIONS (backend-driven content)
+===================================================== */
+
+/* test-case box on the Analyze page */
+
+.test-box {
+
+    padding: 12px 15px 14px;
+
+    border-top: 1px solid var(--border);
+}
+
+.test-box label {
+
+    display: block;
+
+    font-size: 11px;
+
+    margin-bottom: 8px;
+}
+
+.test-box label small {
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    margin-left: 6px;
+}
+
+#testInput {
+
+    width: 100%;
+
+    height: 84px;
+
+    resize: vertical;
+
+    background: #04100b;
+
+    color: #c9f7d8;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    outline: 0;
+
+    padding: 10px 12px;
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 12px;
+
+    line-height: 1.55;
+}
+
+body.light-mode #testInput {
+
+    background: #f7fbf8;
+
+    color: #193c29;
+}
+
+
+/* severity tags */
+
+.severity.medium {
+
+    background: rgba(245, 200, 106, 0.14);
+
+    color: var(--warning);
+}
+
+.severity.low {
+
+    background: rgba(98, 168, 255, 0.14);
+
+    color: var(--blue);
+}
+
+.severity.none {
+
+    background: rgba(85, 217, 139, 0.1);
+
+    color: var(--green-light);
+}
+
+
+/* list of detected issues */
+
+#issueList .issue-item {
+
+    padding-top: 18px;
+
+    margin-top: 18px;
+
+    border-top: 1px solid var(--border);
+}
+
+#issueList .issue-item:first-child {
+
+    padding-top: 0;
+
+    margin-top: 14px;
+
+    border-top: 0;
+}
+
+#issueList .issue-item h4 {
+
+    margin-top: 10px;
+
+    font-size: 14px;
+}
+
+#issueList .issue-item > p,
+#issueList .empty-note {
+
+    margin-top: 8px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    line-height: 1.7;
+}
+
+
+/* validation */
+
+.validation-step.failed-step {
+
+    border-color: rgba(255, 112, 112, 0.5);
+}
+
+.validation-step.failed-step .step-number {
+
+    color: var(--danger);
+}
+
+.validation-table {
+
+    margin-top: 18px;
+}
+
+.status-pass {
+
+    color: var(--green);
+}
+
+.status-fail {
+
+    color: var(--danger);
+}
+
+.status-skipped {
+
+    color: var(--warning);
+}
+
+.bad-text {
+
+    color: var(--danger);
+}
+
+
+/* history status tags */
+
+.table-status.rejected {
+
+    color: var(--danger);
+
+    background: rgba(255, 112, 112, 0.1);
+}
+
+
+/* scale simulator: selected button */
+
+.scale-options button.active {
+
+    color: var(--green-light);
+
+    border-color: var(--green);
+
+    background: rgba(85, 217, 139, 0.1);
+}
+
+
+/* settings dropdowns */
+
+.setting-row select {
+
+    background: var(--bg-secondary);
+
+    color: var(--text);
+
+    border: 1px solid var(--border);
+
+    padding: 9px 12px;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+}
+
+
+/* analyze button while the backend is working */
+
+.analyze-button:disabled {
+
+    opacity: 0.6;
+
+    cursor: wait;
+}
